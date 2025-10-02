@@ -6,8 +6,8 @@ from folium.plugins import MarkerCluster
 import numpy as np
 import branca.colormap as cm
 from netCDF4 import Dataset
-from gp_app.GP_model import fit_gp_model, predict_gp_model, normalize_for_train, scale_for_predict, rescale_output
-from gp_app.map_tools import get_data_point
+from GP_model import fit_gp_model, predict_gp_model, normalize_for_train, scale_for_predict, rescale_output
+from map_tools import get_data_point
 import os
 import matplotlib.pyplot as plt
 
