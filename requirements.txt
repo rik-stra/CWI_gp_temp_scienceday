@@ -1,0 +1,6 @@
+numpy
+folium
+streamlit-folium
+netcdf4
+gpytorch
+matplotlib
