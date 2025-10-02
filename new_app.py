@@ -35,7 +35,7 @@ date_dict = {"14 juli 2025":          "data/high_resolution_weather_maps_2025071
 if not os.path.exists("./high_scores"):
     os.makedirs("./high_scores")
     for date in date_dict.keys():
-        scores = np.ones(50)*20.0
+        scores = np.ones(100)*20.0
         np.save(f"./high_scores/high_scores_{date.replace(' ', '_')}.npy", scores)
 
 st.session_state.mode = st.sidebar.selectbox("Selecteer modus", modi)
@@ -63,7 +63,7 @@ if not (st.session_state.datum == st.session_state.current_date):
 
     linear_cm_temp = cm.LinearColormap(["blue", "yellow", "red"], vmin=st.session_state.ref_temperature.min()-5, vmax=st.session_state.ref_temperature.max()+5)
 
-    st.session_state.score = np.ones(50)*20.0
+    st.session_state.score = np.ones(100)*20.0
     st.session_state.high_scores = np.load(f"./high_scores/high_scores_{st.session_state.datum.replace(' ', '_')}.npy")
 
 if "center" not in st.session_state:
@@ -87,7 +87,7 @@ if st.sidebar.button("Reset", width="stretch") or st.session_state.reset_needed:
     if "error" in st.session_state:
         del st.session_state.error
 
-if len(st.session_state.station_number) > 50:
+if len(st.session_state.station_number) > 100:
     st.warning("De thermometers zijn op, reset de kaart om opnieuw te beginnen.")
     st.stop()
 
