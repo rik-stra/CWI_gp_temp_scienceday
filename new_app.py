@@ -206,6 +206,7 @@ with st.sidebar:
     st.pyplot(fig)
 
 if st.sidebar.button("Save scores", width="stretch"):
+    st.session_state.high_scores = np.load(f"./high_scores/high_scores_{st.session_state.datum.replace(' ', '_')}.npy")
     st.session_state.high_scores = np.minimum(st.session_state.high_scores, st.session_state.score)
     np.save(f"./high_scores/high_scores_{st.session_state.datum.replace(' ', '_')}.npy", st.session_state.high_scores)
     st.sidebar.success("Scores opgeslagen!")
