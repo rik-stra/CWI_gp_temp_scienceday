@@ -64,7 +64,7 @@ if not (st.session_state.datum == st.session_state.current_date):
     linear_cm_temp = cm.LinearColormap(["blue", "yellow", "red"], vmin=st.session_state.ref_temperature.min()-5, vmax=st.session_state.ref_temperature.max()+5)
 
     st.session_state.score = np.ones(50)*20.0
-    st.session_state.high_scores = np.load(f"./high_scores/high_scores_{st.session_state.datum.replace(' ', '_')}.npy")
+    
 
 if "center" not in st.session_state:
     st.session_state.center = [52.2, 5.28]  # Default location
@@ -188,6 +188,7 @@ if "error" in st.session_state:
     st.session_state.score[len(st.session_state.station_number)-2] = st.session_state.error[1]
 
 with st.sidebar:
+    st.session_state.high_scores = np.load(f"./high_scores/high_scores_{st.session_state.datum.replace(' ', '_')}.npy")
     n_station = len(st.session_state.station_number)-1
     x = np.arange(1, 51)
     x_own = np.arange(1, n_station+1)
